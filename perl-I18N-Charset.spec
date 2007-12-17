@@ -20,7 +20,6 @@ BuildRequires:	perl-Unicode-Map
 BuildRequires:	perl-Unicode-Map8
 BuildRequires:  perl-IO-String
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This distribution contains a module I18N::Charset which maps Character
