@@ -1,7 +1,7 @@
 %define module	I18N-Charset
 %define name	perl-%{module}
-%define version 1.394
-%define release %mkrel 2
+%define version 1.396
+%define release %mkrel 1
 
 Name:		%{name}
 Version:	%{version}
