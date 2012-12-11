@@ -1,26 +1,20 @@
 %define module	I18N-Charset
-%define name	perl-%{module}
-%define version 1.396
-%define release %mkrel 1
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		perl-%{module}
+Version:	1.396
+Release:	2
 Summary:	IANA Character Set Registry names and Unicode::MapUTF8
 License:	GPL or Artistic
 Group:		Development/Perl
 Source:		http://search.cpan.org/CPAN/authors/id/M/MT/MTHURN/%{module}-%{version}.tar.bz2
 URL:		http://search.cpan.org/dist/%{module}
-%if %{mdkversion} < 1010
 BuildRequires:	perl-devel
-%endif
-BuildRequires:	perl-IO-Capture >= 0.05-1mdk
-BuildRequires:	perl-App-Info
-BuildRequires:	perl-Unicode-Map
-BuildRequires:	perl-Unicode-Map8
-BuildRequires:  perl-IO-String
+BuildRequires:	perl(IO::Capture)
+BuildRequires:	perl(App::Info)
+BuildRequires:	perl(Unicode::Map)
+BuildRequires:	perl(Unicode::Map8)
+BuildRequires:	perl(IO::String)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This distribution contains a module I18N::Charset which maps Character
@@ -48,22 +42,73 @@ for 'Shift_JIS' is 'shiftjis'.
 %setup -q -n %{module}-%{version} 
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-%{__make} test
+make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean 
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{perl_vendorlib}/I18N
 %{_mandir}/*/*
+
+%changelog
+* Fri Nov 12 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.396-1mdv2011.0
++ Revision: 596558
+- update to new version 1.396
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 1.394-2mdv2011.0
++ Revision: 430467
+- rebuild
+
+* Sun Jul 13 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.394-1mdv2009.0
++ Revision: 234278
+- update to new version 1.394
+
+* Sun Jul 06 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.392-1mdv2009.0
++ Revision: 232107
+- update to new version 1.392
+
+* Mon Jun 30 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.391-1mdv2009.0
++ Revision: 230270
+- update to new version 1.391
+
+* Wed May 28 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.389-1mdv2009.0
++ Revision: 212214
+- update to new version 1.389
+
+* Fri Feb 22 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.388-1mdv2008.1
++ Revision: 173947
+- update to new version 1.388
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Mon Jul 16 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.385-1mdv2008.0
++ Revision: 52491
+- update to new version 1.385
+
+* Tue May 01 2007 Olivier Thauvin <nanardon@mandriva.org> 1.382-1mdv2008.0
++ Revision: 20194
+- 1.382
+
+
+* Tue Dec 20 2005 Guillaume Rousse <guillomovitch@mandriva.org> 1.379-1mdk
+- New release 1.379
+- spec cleanup
+- fix directory ownership
+- dropped patch (fixed upstream)
+
+* Sun Jul 31 2005 Nicolas Lécureuil <neoclust@mandriva.org> 1.375-2mdk
+- Fix BuildRequires
+
+* Thu Jul 14 2005 Oden Eriksson <oeriksson@mandriva.com> 1.375-1mdk
+- initial Mandriva package
 
