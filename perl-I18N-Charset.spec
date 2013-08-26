@@ -1,12 +1,13 @@
 %define module	I18N-Charset
+%define upstream_version 1.411
 
 Name:		perl-%{module}
-Version:	1.396
-Release:	2
+Version:	%perl_convert_version %{upstream_version}
+Release:	1
 Summary:	IANA Character Set Registry names and Unicode::MapUTF8
 License:	GPL or Artistic
 Group:		Development/Perl
-Source:		http://search.cpan.org/CPAN/authors/id/M/MT/MTHURN/%{module}-%{version}.tar.bz2
+Source:		http://www.cpan.org/authors/id/M/MT/MTHURN/I18N-Charset-%{upstream_version}.tar.gz
 URL:		http://search.cpan.org/dist/%{module}
 BuildRequires:	perl-devel
 BuildRequires:	perl(IO::Capture)
@@ -39,7 +40,7 @@ by the Encode module.  For example, the Encode encoding name
 for 'Shift_JIS' is 'shiftjis'.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{module}-%{upstream_version} 
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -111,4 +112,5 @@ make test
 
 * Thu Jul 14 2005 Oden Eriksson <oeriksson@mandriva.com> 1.375-1mdk
 - initial Mandriva package
+
 
