@@ -1,5 +1,5 @@
 %define module	I18N-Charset
-%define upstream_version 1.411
+%define upstream_version 1.412
 
 Name:		perl-%{module}
 Version:	%perl_convert_version %{upstream_version}
@@ -7,7 +7,7 @@ Release:	1
 Summary:	IANA Character Set Registry names and Unicode::MapUTF8
 License:	GPL or Artistic
 Group:		Development/Perl
-Source:		http://www.cpan.org/authors/id/M/MT/MTHURN/I18N-Charset-%{upstream_version}.tar.gz
+Source:		http://search.cpan.org/CPAN/authors/id/M/MT/MTHURN/I18N-Charset-%{upstream_version}.tar.gz
 URL:		http://search.cpan.org/dist/%{module}
 BuildRequires:	perl-devel
 BuildRequires:	perl(IO::Capture)
@@ -112,5 +112,6 @@ make test
 
 * Thu Jul 14 2005 Oden Eriksson <oeriksson@mandriva.com> 1.375-1mdk
 - initial Mandriva package
+
 
 
