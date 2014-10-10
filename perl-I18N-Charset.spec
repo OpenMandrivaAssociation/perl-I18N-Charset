@@ -3,7 +3,7 @@
 
 Name:		perl-%{module}
 Version:	%perl_convert_version %{upstream_version}
-Release:	1
+Release:	2
 Summary:	IANA Character Set Registry names and Unicode::MapUTF8
 License:	GPL or Artistic
 Group:		Development/Perl
