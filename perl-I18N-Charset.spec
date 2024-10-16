@@ -7,7 +7,7 @@ Summary:	IANA Character Set Registry names and Unicode::MapUTF8
 License:	GPL or Artistic
 Group:		Development/Perl
 Source:		http://search.cpan.org/CPAN/authors/id/M/MT/MTHURN/I18N-Charset-%{version}.tar.gz
-URL:		http://search.cpan.org/dist/%{module}
+URL:		https://search.cpan.org/dist/%{module}
 BuildRequires:	perl-devel
 BuildRequires:	perl(IO::Capture)
 BuildRequires:	perl(App::Info)
